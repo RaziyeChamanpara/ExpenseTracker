@@ -6,14 +6,17 @@
         xmlns:local="clr-namespace:ExpenseTracker"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DataGrid Height="600" Margin="12"  >
-            <DataGrid.Columns >
+    <StackPanel>
+        <DataGrid Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
                 <DataGridTextColumn Header="Id"
-                                    Width="SizeToHeader"/>
+                                    Width="SizeToHeader"
+                                    Binding="{Binding  Id}"/>
                 <DataGridTextColumn Header="Name"
-                                    Width="SizeToHeader"/>
+                                    Width="SizeToHeader"
+                                    Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+        <Button Content="save" Click="Button_Click"/>
+    </StackPanel>
 </Window>
