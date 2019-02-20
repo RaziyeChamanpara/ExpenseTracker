@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <DataGrid Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
@@ -17,6 +18,7 @@
                                     Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="save" Click="Button_Click"/>
+        <Button Content="add"  Foreground="PaleVioletRed" Background="WhiteSmoke" Click="AddButton_Click"/>
+        <Button Content="save" Foreground="Green" Background="WhiteSmoke"  Click="SaveButton_Click"/>
     </StackPanel>
 </Window>
