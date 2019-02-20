@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 
+
 namespace ExpenseTracker
 {
     /// <summary>
@@ -22,33 +23,38 @@ namespace ExpenseTracker
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ExpenseContext _expenseContext = new ExpenseContext();
+        private List<ExpenseType> _expenseTypes;
+        
+        
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _expenseTypes= _expenseContext.ExpenseTypes.ToList();
+            dataGrid.ItemsSource = _expenseTypes;
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                ExpenseContext expenseContext = new ExpenseContext();
-                expenseContext.ExpenseTypes.Add(new ExpenseType() { Id = 3, Name = "utilities" });
-                expenseContext.ExpenseTypes.Add(new ExpenseType() { Id = 4, Name = "daily" });
-
-                expenseContext.SaveChanges();
+                _expenseContext.ExpenseTypes.Add(new ExpenseType() { Id = 1, Name = "daily" });
                 MessageBox.Show("Added");
 
-                List<ExpenseType> expenseTypes= expenseContext.ExpenseTypes.ToList();
-                dataGrid.ItemsSource = expenseTypes;
-
-
             }
-            catch (Exception exception)
+            catch (Exception exeption)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show(exeption.Message);
             }
+        }
 
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+                _expenseContext.SaveChanges();
         }
     }
 }
