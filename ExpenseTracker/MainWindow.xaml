@@ -19,6 +19,5 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="add"  Foreground="PaleVioletRed" Background="WhiteSmoke" Click="AddButton_Click"/>
-        <Button Content="save" Foreground="Green" Background="WhiteSmoke"  Click="SaveButton_Click"/>
     </StackPanel>
 </Window>

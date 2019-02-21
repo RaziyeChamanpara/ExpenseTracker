@@ -25,8 +25,8 @@ namespace ExpenseTracker
     {
         private ExpenseContext _expenseContext = new ExpenseContext();
         private List<ExpenseType> _expenseTypes;
-        
-        
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace ExpenseTracker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _expenseTypes= _expenseContext.ExpenseTypes.ToList();
+            _expenseTypes = _expenseContext.ExpenseTypes.ToList();
             dataGrid.ItemsSource = _expenseTypes;
         }
 
@@ -44,6 +44,7 @@ namespace ExpenseTracker
             {
                 _expenseContext.ExpenseTypes.Add(new ExpenseType() { Id = 1, Name = "daily" });
                 MessageBox.Show("Added");
+                _expenseContext.SaveChanges();
 
             }
             catch (Exception exeption)
@@ -52,9 +53,5 @@ namespace ExpenseTracker
             }
         }
 
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
-        {
-                _expenseContext.SaveChanges();
-        }
     }
 }
