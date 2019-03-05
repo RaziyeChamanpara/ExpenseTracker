@@ -52,6 +52,6 @@ namespace ExpenseTracker
                 MessageBox.Show(exeption.Message);
             }
         }
-
+        
     }
 }
