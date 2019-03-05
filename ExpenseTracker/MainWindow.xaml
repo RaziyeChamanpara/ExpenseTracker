@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid Height="600" Margin="12"  >
-            <DataGrid.Columns >
-                <DataGridTextColumn Header="Id"
-                                    Width="SizeToHeader"/>
-                <DataGridTextColumn Header="Name"
-                                    Width="SizeToHeader"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" Grid.Column="0" Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="1" Grid.Column="0" Content="next" HorizontalAlignment="Right" />
+        <Button Grid.Row="1" Grid.Column="0" Content="previous" HorizontalAlignment="Left"/>
+        <Button Grid.Row="1" Grid.Column="0" Content="add" HorizontalAlignment="Center" Click="AddButton_Click"/>
     </Grid>
 </Window>
