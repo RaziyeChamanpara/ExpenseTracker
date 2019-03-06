@@ -9,17 +9,28 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Grid.Column="0" Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Row="1" Grid.Column="1" Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="1" Grid.Column="0" Content="next" HorizontalAlignment="Right" />
-        <Button Grid.Row="1" Grid.Column="0" Content="previous" HorizontalAlignment="Left"/>
-        <Button Grid.Row="1" Grid.Column="0" Content="add" HorizontalAlignment="Center" Click="AddButton_Click"/>
+        <StackPanel  Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+            <Button Content="next"/>
+            <Button Content="previous"/>
+            <Button Content="add" Click="AddButton_Click"/>
+        </StackPanel>
+        
     </Grid>
 </Window>
