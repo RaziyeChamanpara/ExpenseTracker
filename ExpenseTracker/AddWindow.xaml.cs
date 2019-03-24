@@ -25,9 +25,6 @@ namespace ExpenseTracker
         public AddWindow()
         {
             InitializeComponent();
-            this.SizeToContent = SizeToContent.WidthAndHeight;
-            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
