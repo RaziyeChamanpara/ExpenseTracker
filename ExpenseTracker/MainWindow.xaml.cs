@@ -62,6 +62,7 @@ namespace ExpenseTracker
             catch (Exception exeption)
             {
                 MessageBox.Show(exeption.Message);
+
             }
         }
 
