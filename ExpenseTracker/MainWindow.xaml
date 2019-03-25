@@ -7,13 +7,10 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="*"/>
@@ -21,7 +18,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <DataGrid Grid.Row="1" Grid.Column="1" Name="dataGrid"
+        <DataGrid Grid.Row="0" Grid.Column="1" Name="dataGrid"
                   ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Width="*"  Binding="{Binding Id}"/>
@@ -29,7 +26,7 @@
             </DataGrid.Columns>
         </DataGrid>
         
-        <StackPanel  Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
+        <StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
             <Button Content="Add" Margin="2" Click="AddButton_Click"/>
             <Button Content="First" Margin="2" Click="FirstButton_Click"/>
             <Button Content="Next" Margin="2" Click="NextButton_Click"/>
