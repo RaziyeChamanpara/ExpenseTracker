@@ -34,7 +34,7 @@ namespace ExpenseTracker
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            var name = nameTextBox.Text;
+            string name = nameTextBox.Text;
             if (name == "")
             {
                 MessageBox.Show("Choose a name");

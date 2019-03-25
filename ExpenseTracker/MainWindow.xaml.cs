@@ -45,12 +45,12 @@ namespace ExpenseTracker
             try
             {
                 AddWindow addWindow = new AddWindow();
-                var resultDialog = addWindow.ShowDialog();
+                var result= addWindow.ShowDialog();
 
-                if (resultDialog == false)
+                if (result == false)
                     return;
 
-                var newExpenseType = addWindow.ExpenseType;
+               ExpenseType newExpenseType = addWindow.ExpenseType;
 
                 _expenseTypes.Add(newExpenseType);
                 _expenseContext.ExpenseTypes.Add(newExpenseType);
