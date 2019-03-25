@@ -18,9 +18,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Margin="1" Content="Enter name of the expense type:" />
+        <Label Grid.Row="0" Margin="1" 
+               Content="Enter name of the expense type:" />
         <TextBox Grid.Row=" 1" Margin="5" Name="nameTextBox" />
-        <StackPanel Grid.Row="2" Margin="1" Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel Grid.Row="2" Margin="1" Orientation="Horizontal" 
+                    HorizontalAlignment="Right">
             <Button Content="Save" Margin="3" Click="SaveButton_Click"/>
             <Button Content="Cancel" Margin="3" Click="CancelButton_Click"/>
         </StackPanel>
