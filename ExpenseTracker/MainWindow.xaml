@@ -33,7 +33,7 @@
             <Button Content="Previous" Margin="2" Click="PreviousButton_Click"/>
             <Button Content="Last" Margin="2" Click="LastButton_Click"/>
             <Button Content="Delete" Margin="2" Click="DeleteButton_Click"/>
-            <Button Content="Edit" Margin="2"/>
+            <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
         </StackPanel>
         
     </Grid>

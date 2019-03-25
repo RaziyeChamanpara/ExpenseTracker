@@ -26,7 +26,6 @@ namespace ExpenseTracker
         private ExpenseContext _expenseContext = new ExpenseContext();
         private List<ExpenseType> _expenseTypes;
         private int _selectedIndex = -1;
-        private ExpenseType _selectedItem = null;
 
         public MainWindow()
         {
@@ -45,12 +44,12 @@ namespace ExpenseTracker
             try
             {
                 AddWindow addWindow = new AddWindow();
-                var result= addWindow.ShowDialog();
+                var result = addWindow.ShowDialog();
 
                 if (result == false)
                     return;
 
-               ExpenseType newExpenseType = addWindow.ExpenseType;
+                ExpenseType newExpenseType = addWindow.ExpenseType;
 
                 _expenseTypes.Add(newExpenseType);
                 _expenseContext.ExpenseTypes.Add(newExpenseType);
@@ -101,11 +100,11 @@ namespace ExpenseTracker
             if (messageBoxResult == MessageBoxResult.Cancel)
                 return;
 
-            _selectedItem = _expenseTypes[_selectedIndex];
-            _expenseTypes.Remove(_selectedItem);
+            var selectedRow = _expenseTypes[_selectedIndex];
+            _expenseTypes.Remove(selectedRow);
             dataGrid.Items.Refresh();
 
-            _expenseContext.ExpenseTypes.Remove(_selectedItem);
+            _expenseContext.ExpenseTypes.Remove(selectedRow);
             _expenseContext.SaveChanges();
 
         }
@@ -129,6 +128,29 @@ namespace ExpenseTracker
 
             dataGrid.SelectedItem = _expenseTypes[_selectedIndex];
 
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedRow = _expenseTypes[_selectedIndex];
+
+            EditWindow editWindow = new EditWindow(selectedRow);
+            var result = editWindow.ShowDialog();
+
+            if (result == false)
+                return;
+
+            //editing local list
+            selectedRow = editWindow.Model;
+
+            //editing database
+            var oldRecord = _expenseContext.ExpenseTypes
+                 .Where(x => x.Id == selectedRow.Id)
+                 .FirstOrDefault();
+            _expenseContext.Entry(oldRecord).CurrentValues.SetValues(selectedRow);
+            _expenseContext.SaveChanges();
+
+            dataGrid.Items.Refresh();
         }
     }
 }
