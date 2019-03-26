@@ -63,6 +63,10 @@
     <Compile Include="Migrations\201903260555035_ModifyingExpensesTable.Designer.cs">
       <DependentUpon>201903260555035_ModifyingExpensesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903260611101_ChangeDataTimeCloumnToDataInEpensesTable.cs" />
+    <Compile Include="Migrations\201903260611101_ChangeDataTimeCloumnToDataInEpensesTable.Designer.cs">
+      <DependentUpon>201903260611101_ChangeDataTimeCloumnToDataInEpensesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -79,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903260555035_ModifyingExpensesTable.resx">
       <DependentUpon>201903260555035_ModifyingExpensesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903260611101_ChangeDataTimeCloumnToDataInEpensesTable.resx">
+      <DependentUpon>201903260611101_ChangeDataTimeCloumnToDataInEpensesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
