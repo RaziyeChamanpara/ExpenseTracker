@@ -59,6 +59,10 @@
     <Compile Include="Migrations\201902270621117_CreateExpense.Designer.cs">
       <DependentUpon>201902270621117_CreateExpense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903260555035_ModifyingExpensesTable.cs" />
+    <Compile Include="Migrations\201903260555035_ModifyingExpensesTable.Designer.cs">
+      <DependentUpon>201903260555035_ModifyingExpensesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902270621117_CreateExpense.resx">
       <DependentUpon>201902270621117_CreateExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903260555035_ModifyingExpensesTable.resx">
+      <DependentUpon>201903260555035_ModifyingExpensesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
