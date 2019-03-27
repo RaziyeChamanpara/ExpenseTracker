@@ -17,15 +17,18 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        
-        <DataGrid Grid.Row="0" Grid.Column="1" Name="dataGrid"
-                  ItemsSource="{Binding}" AutoGenerateColumns="False">
+
+        <DataGrid 
+                  Name="expenseTypesDataGrid"
+                  Grid.Row="0" Grid.Column="1"
+                  ItemsSource="{Binding}" 
+                  AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Width="*"  Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
             <Button Content="Add" Margin="2" Click="AddButton_Click"/>
             <Button Content="First" Margin="2" Click="FirstButton_Click"/>
@@ -35,6 +38,6 @@
             <Button Content="Delete" Margin="2" Click="DeleteButton_Click"/>
             <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
         </StackPanel>
-        
+
     </Grid>
 </Window>

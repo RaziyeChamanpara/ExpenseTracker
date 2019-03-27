@@ -35,7 +35,7 @@ namespace ExpenseTracker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _expenseTypes = _expenseContext.ExpenseTypes.ToList();
-            dataGrid.ItemsSource = _expenseTypes;
+             expenseTypesDataGrid.ItemsSource = _expenseTypes;
             GoFirst();
         }
 
