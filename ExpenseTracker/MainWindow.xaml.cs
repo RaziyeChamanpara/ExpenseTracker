@@ -55,7 +55,7 @@ namespace ExpenseTracker
                 _expenseContext.ExpenseTypes.Add(newExpenseType);
                 _expenseContext.SaveChanges();
 
-                dataGrid.Items.Refresh();
+                expenseTypesDataGrid.Items.Refresh();
 
             }
             catch (Exception exeption)
@@ -76,7 +76,7 @@ namespace ExpenseTracker
                 return;
 
             _selectedIndex += 1;
-            dataGrid.SelectedItem = _expenseTypes[_selectedIndex];
+            expenseTypesDataGrid.SelectedItem = _expenseTypes[_selectedIndex];
 
         }
 
@@ -84,7 +84,7 @@ namespace ExpenseTracker
         {
             if (_expenseTypes.Count == 0)
                 return;
-            dataGrid.SelectedItem = _expenseTypes.Last();
+            expenseTypesDataGrid.SelectedItem = _expenseTypes.Last();
             _selectedIndex = _expenseTypes.Count - 1;
 
         }
@@ -102,7 +102,7 @@ namespace ExpenseTracker
 
             var selectedRow = _expenseTypes[_selectedIndex];
             _expenseTypes.Remove(selectedRow);
-            dataGrid.Items.Refresh();
+            expenseTypesDataGrid.Items.Refresh();
 
             _expenseContext.ExpenseTypes.Remove(selectedRow);
             _expenseContext.SaveChanges();
@@ -114,7 +114,7 @@ namespace ExpenseTracker
             if (_expenseTypes.Count == 0)
                 return;
 
-            dataGrid.SelectedItem = _expenseTypes.First();
+            expenseTypesDataGrid.SelectedItem = _expenseTypes.First();
             _selectedIndex = 0;
 
         }
@@ -126,7 +126,7 @@ namespace ExpenseTracker
 
             _selectedIndex -= 1;
 
-            dataGrid.SelectedItem = _expenseTypes[_selectedIndex];
+            expenseTypesDataGrid.SelectedItem = _expenseTypes[_selectedIndex];
 
         }
 
@@ -150,7 +150,14 @@ namespace ExpenseTracker
             _expenseContext.Entry(oldRecord).CurrentValues.SetValues(selectedRow);
             _expenseContext.SaveChanges();
 
-            dataGrid.Items.Refresh();
+            expenseTypesDataGrid.Items.Refresh();
+        }
+
+        private void ExpensesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ExpensesWindow expensesWindow = new ExpensesWindow();
+            expensesWindow.Show();
+
         }
     }
 }
