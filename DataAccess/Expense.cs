@@ -13,5 +13,8 @@ namespace DataAccess
         public string Description { get; set; }
         public DateTime Date { get; set; }
         public int Amount { get; set; }
+
+        //[notnull]
+        public int ExpenseTypeId { get; set; }
     }
 }
