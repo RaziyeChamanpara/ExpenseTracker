@@ -35,7 +35,20 @@ namespace ExpenseTracker
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
+            AddExpenseWindow addExpenseWindow = new AddExpenseWindow();
+            var result=addExpenseWindow.ShowDialog();
+            if (result == false)
+                return;
 
+            var newExpense = new Expense();
+            newExpense = addExpenseWindow.Model;
+
+            _expenses.Add(newExpense);
+
+            expensesDataGrid.Items.Refresh();
+
+            _expenseContext.Expenses.Add(newExpense);
+            _expenseContext.SaveChanges();
         }
     }
 

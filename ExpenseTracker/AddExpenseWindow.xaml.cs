@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataAccess;
 
 namespace ExpenseTracker
 {
@@ -19,9 +20,60 @@ namespace ExpenseTracker
     /// </summary>
     public partial class AddExpenseWindow : Window
     {
+        public Expense Model { get; set; }
+        private ExpenseContext _expenseContext = new ExpenseContext();
+        private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
+        private ExpenseType _expenseType = new ExpenseType();
+
         public AddExpenseWindow()
         {
             InitializeComponent();
+            Model = new Expense();
+            _expenseTypes = _expenseContext.ExpenseTypes.ToList();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            expensetypeComboBox.ItemsSource = _expenseTypes;
+            var x=expensetypeComboBox.Items;
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (expensetypeComboBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose the expense type");
+                return;
+            }
+            if (descriptionTextBox.Text == "")
+            {
+                MessageBox.Show("Fill the Description");
+                return;
+            }
+            if (calendar.SelectedDate.Value == null)
+            {
+                MessageBox.Show("Choose a date");
+                return;
+            }
+            if (amountTextBox.Text == "")
+            {
+                MessageBox.Show("Fill the Amount");
+                return;
+            }
+
+            Model.ExpenseType = expensetypeComboBox.SelectedItem as ExpenseType;
+            Model.Description = descriptionTextBox.Text;
+            Model.Date = calendar.SelectedDate.Value ;
+            Model.Amount = Convert.ToInt32(amountTextBox.Text);
+
+            this.DialogResult = true;
+     
+        }
+
     }
 }

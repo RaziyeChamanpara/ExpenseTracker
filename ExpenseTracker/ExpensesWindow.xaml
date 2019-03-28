@@ -10,7 +10,7 @@
     <Grid Margin="100" >
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0"
                   Name="expensesDataGrid"
@@ -26,7 +26,7 @@
             
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Name="Add" Margin="2" Click="AddButton_Click"/>
+            <Button Content="Add" Margin="2" Click="AddButton_Click"/>
         </StackPanel>
 
     </Grid>
