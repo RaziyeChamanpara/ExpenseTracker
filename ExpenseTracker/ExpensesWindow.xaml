@@ -8,7 +8,12 @@
         Title="Expenses" Height="450" Width="800"
         Loaded="Window_Loaded">
     <Grid Margin="100" >
-        <DataGrid Name="expensesDataGrid"
+        <Grid.RowDefinitions >
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0"
+                  Name="expensesDataGrid"
                   ItemsSource="{Binding}"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -20,6 +25,9 @@
             </DataGrid.Columns>
             
         </DataGrid>
-        
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Name="Add" Margin="2" Click="AddButton_Click"/>
+        </StackPanel>
+
     </Grid>
 </Window>

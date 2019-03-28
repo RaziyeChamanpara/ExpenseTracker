@@ -32,6 +32,11 @@ namespace ExpenseTracker
             _expenses = _expenseContext.Expenses.ToList();
             expensesDataGrid.ItemsSource = _expenses;
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
 }
