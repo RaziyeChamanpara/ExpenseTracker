@@ -39,7 +39,7 @@ namespace ExpenseTracker
         {
             try
             {
-                AddWindow addWindow = new AddWindow();
+                AddExpenseTypeWindow addWindow = new AddExpenseTypeWindow();
                 var result = addWindow.ShowDialog();
 
                 if (result == false)
