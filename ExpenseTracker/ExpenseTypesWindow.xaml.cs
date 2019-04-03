@@ -149,5 +149,10 @@ namespace ExpenseTracker
             expenseTypesDataGrid.Items.Refresh();
         }
 
+        private void expenseTypesDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            _selectedIndex = expenseTypesDataGrid.SelectedIndex;
+
+        }
     }
 }

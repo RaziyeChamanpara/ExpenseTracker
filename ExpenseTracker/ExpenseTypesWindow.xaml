@@ -23,9 +23,9 @@
                   Name="expenseTypesDataGrid"
                   Grid.Row="0" Grid.Column="1"
                   ItemsSource="{Binding}" 
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False" 
+            SelectedCellsChanged="expenseTypesDataGrid_SelectedCellsChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Width="*"  Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
