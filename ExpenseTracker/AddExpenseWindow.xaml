@@ -24,7 +24,8 @@
                     <ComboBox Name="expensetypeComboBox"
                               ItemsSource="{Binding _expenseTypes}"
                               DisplayMemberPath="Name"
-                              SelectedValuePath="Id" Width="100"/>
+                              SelectedValuePath="Id" 
+                              Width="100"/>
                                 
                 </StackPanel>
                 <StackPanel Grid.Row="2" Orientation="Horizontal">

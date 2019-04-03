@@ -35,7 +35,6 @@ namespace ExpenseTracker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             expensetypeComboBox.ItemsSource = _expenseTypes;
-            var x=expensetypeComboBox.Items;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
