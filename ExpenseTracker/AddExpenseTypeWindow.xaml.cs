@@ -18,11 +18,11 @@ namespace ExpenseTracker
     /// <summary>
     /// Interaction logic for AddWindow.xaml
     /// </summary>
-    public partial class AddWindow : Window
+    public partial class AddExpenseTypeWindow : Window
     {
         public ExpenseType ExpenseType { get; set; }
 
-        public AddWindow()
+        public AddExpenseTypeWindow()
         {
             InitializeComponent();
         }

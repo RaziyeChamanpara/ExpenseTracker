@@ -5,36 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
         mc:Ignorable="d"
-        Loaded="Window_Loaded"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="10">
+    <Grid Margin="10" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <DataGrid Grid.Row="0" Grid.Column="1" Name="dataGrid"
-                  ItemsSource="{Binding}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Width="*"  Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        
-        <StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
-            <Button Content="Add" Margin="2" Click="AddButton_Click"/>
-            <Button Content="First" Margin="2" Click="FirstButton_Click"/>
-            <Button Content="Next" Margin="2" Click="NextButton_Click"/>
-            <Button Content="Previous" Margin="2" Click="PreviousButton_Click"/>
-            <Button Content="Last" Margin="2" Click="LastButton_Click"/>
-            <Button Content="Delete" Margin="2" Click="DeleteButton_Click"/>
-            <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
-        </StackPanel>
-        
+        <Button Grid.Row="0" Content="Expenses" Margin="2" Click="ExpensesButton_Click"/>
+        <Button Grid.Row="1" Content="ExpenseTypes" Margin="2" Click="ExpenseTypesButton_Click"/>
+
     </Grid>
 </Window>
