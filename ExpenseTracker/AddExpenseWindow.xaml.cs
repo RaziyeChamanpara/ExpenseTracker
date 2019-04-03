@@ -65,13 +65,14 @@ namespace ExpenseTracker
                 return;
             }
 
-            Model.ExpenseTypeId = (int) expensetypeComboBox.SelectedValue ;
+            Model.ExpenseTypeId = (int)expensetypeComboBox.SelectedValue;
+            Model.ExpenseType = expensetypeComboBox.SelectedItem as ExpenseType;
             Model.Description = descriptionTextBox.Text;
-            Model.Date = calendar.SelectedDate.Value.Date ;
+            Model.Date = calendar.SelectedDate.Value;
             Model.Amount = Convert.ToInt32(amountTextBox.Text);
 
             this.DialogResult = true;
-     
+
         }
 
     }
