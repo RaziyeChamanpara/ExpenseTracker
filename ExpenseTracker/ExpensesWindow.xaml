@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Expenses" Height="450" Width="800"
         Loaded="Window_Loaded">
-    <Grid Margin="100" >
+    <Grid Margin="10" >
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -15,13 +15,15 @@
         <DataGrid Grid.Row="0"
                   Name="expensesDataGrid"
                   ItemsSource="{Binding}"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  Width="auto"
+                  >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding ID}" Width="*"/>
-                <DataGridTextColumn Header="Expense Type" Binding="{Binding ExpenseType}" Width="*"/>
-                <DataGridTextColumn Header=" Date" Binding="{Binding Date}" Width="*"/>
-                <DataGridTextColumn Header="Discription" Binding="{Binding Description}" Width="*"/>
-                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="*"/>
+                <DataGridTextColumn Header="Id" Binding="{Binding ID}" Width="auto"/>
+                <DataGridTextColumn Header="Expense Type" Binding="{Binding ExpenseType.Name}" Width="auto"/>
+                <DataGridTextColumn Header=" Date" Binding="{Binding Date}" Width="auto"/>
+                <DataGridTextColumn Header="Discription" Binding="{Binding Description}" Width="auto"/>
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="auto"/>
             </DataGrid.Columns>
             
         </DataGrid>

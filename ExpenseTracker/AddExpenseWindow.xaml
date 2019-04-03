@@ -24,11 +24,12 @@
                     <ComboBox Name="expensetypeComboBox"
                               ItemsSource="{Binding _expenseTypes}"
                               DisplayMemberPath="Name"
-                              SelectedValuePath="Name"/>
+                              SelectedValuePath="Id" Width="100"/>
+                                
                 </StackPanel>
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
                     <Label Content="Description:"/>
-                    <TextBox Name="descriptionTextBox"/>
+                    <TextBox Name="descriptionTextBox" Width="100"/>
                 </StackPanel>
                 <StackPanel Grid.Row="3" Orientation="Horizontal">
                     <Label Content="Date:"/>
@@ -36,7 +37,7 @@
                 </StackPanel>
                 <StackPanel Grid.Row="4" Orientation="Horizontal">
                     <Label Content="Amount:"/>
-                    <TextBox Name="amountTextBox"/>
+                    <TextBox Name="amountTextBox" Width="100"/>
                 </StackPanel>
                 <StackPanel Grid.Row="5" 
                     Orientation="Horizontal"

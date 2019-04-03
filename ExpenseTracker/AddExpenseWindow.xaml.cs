@@ -55,7 +55,7 @@ namespace ExpenseTracker
                 MessageBox.Show("Fill the Description");
                 return;
             }
-            if (calendar.SelectedDate.Value == null)
+            if (calendar.SelectedDate == null)
             {
                 MessageBox.Show("Choose a date");
                 return;
@@ -66,9 +66,9 @@ namespace ExpenseTracker
                 return;
             }
 
-            Model.ExpenseType = expensetypeComboBox.SelectedItem as ExpenseType;
+            Model.ExpenseTypeId = (int) expensetypeComboBox.SelectedValue ;
             Model.Description = descriptionTextBox.Text;
-            Model.Date = calendar.SelectedDate.Value ;
+            Model.Date = calendar.SelectedDate.Value.Date ;
             Model.Amount = Convert.ToInt32(amountTextBox.Text);
 
             this.DialogResult = true;

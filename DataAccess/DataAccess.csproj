@@ -75,6 +75,14 @@
     <Compile Include="Migrations\201903280905089_AddExpenseTypeIdColumnToExpencesTable.Designer.cs">
       <DependentUpon>201903280905089_AddExpenseTypeIdColumnToExpencesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903290427537_DeleteExpenseTypeIdFromExpensesTable.cs" />
+    <Compile Include="Migrations\201903290427537_DeleteExpenseTypeIdFromExpensesTable.Designer.cs">
+      <DependentUpon>201903290427537_DeleteExpenseTypeIdFromExpensesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903290431585_AddExpenseTypeIdColumnToExpensesTable.cs" />
+    <Compile Include="Migrations\201903290431585_AddExpenseTypeIdColumnToExpensesTable.Designer.cs">
+      <DependentUpon>201903290431585_AddExpenseTypeIdColumnToExpensesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903280905089_AddExpenseTypeIdColumnToExpencesTable.resx">
       <DependentUpon>201903280905089_AddExpenseTypeIdColumnToExpencesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903290427537_DeleteExpenseTypeIdFromExpensesTable.resx">
+      <DependentUpon>201903290427537_DeleteExpenseTypeIdFromExpensesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903290431585_AddExpenseTypeIdColumnToExpensesTable.resx">
+      <DependentUpon>201903290431585_AddExpenseTypeIdColumnToExpensesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
