@@ -7,12 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="10" >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Content="Expenses" Margin="2" Click="ExpensesButton_Click"/>
-        <Button Grid.Row="1" Content="ExpenseTypes" Margin="2" Click="ExpenseTypesButton_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <Image Grid.Column="1" Source="Images\MainImage.png" />
+
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Button Content="Expenses" Margin="2" Click="ExpensesButton_Click"/>
+            <Button Content="ExpenseTypes" Margin="2" Click="ExpenseTypesButton_Click"/>
+
+        </StackPanel>
+        
     </Grid>
 </Window>
