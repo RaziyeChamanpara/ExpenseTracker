@@ -8,20 +8,13 @@
         Loaded="Window_Loaded"
         Title="ExpenseTypesWindow" Height="450" Width="800">
     <Grid>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-
         <DataGrid 
+                  Grid.Row="0" 
                   Name="expenseTypesDataGrid"
-                  Grid.Row="0" Grid.Column="1"
                   ItemsSource="{Binding}" 
                   AutoGenerateColumns="False" 
             SelectedCellsChanged="expenseTypesDataGrid_SelectedCellsChanged">
@@ -29,8 +22,7 @@
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-
-        <StackPanel  Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Content="Add" Margin="2" Click="AddButton_Click"/>
             <Button Content="First" Margin="2" Click="FirstButton_Click"/>
             <Button Content="Next" Margin="2" Click="NextButton_Click"/>
@@ -39,6 +31,5 @@
             <Button Content="Delete" Margin="2" Click="DeleteButton_Click"/>
             <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
         </StackPanel>
-
     </Grid>
 </Window>

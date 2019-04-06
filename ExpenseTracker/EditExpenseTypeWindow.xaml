@@ -7,20 +7,17 @@
         mc:Ignorable="d"
         Title="Edit Expense Type"
         ResizeMode="NoResize"
-        SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Height="160.667" Width="479">
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition  Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition  Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Margin="1" Content="Enter a name:"/>
-        <TextBox Grid.Row="1" Margin="1" Name="editNameTextBox"/>
-        <StackPanel Grid.Row="2" Margin="1" 
+        <Label Grid.Row="0" Margin="2" Content="Enter a name:"/>
+        <TextBox Grid.Row="1" Margin="2" Name="editNameTextBox" />
+        <StackPanel Grid.Row="2" 
+                    Margin="2" 
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
             <Button Content="Save" Margin="1" Click="SaveButton_Click"/>
