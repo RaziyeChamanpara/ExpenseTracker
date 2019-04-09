@@ -28,6 +28,7 @@
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Content="Add" Margin="2" Click="AddButton_Click"/>
+            <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
         </StackPanel>
 
     </Grid>

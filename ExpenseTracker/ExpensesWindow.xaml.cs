@@ -21,7 +21,7 @@ namespace ExpenseTracker
     public partial class ExpensesWindow : Window
     {
         private List<Expense> _expenses;
-        private ExpenseContext _expenseContext = new ExpenseContext();
+        private int _selectedIndex = -1;
         public ExpensesWindow()
         {
             InitializeComponent();
@@ -29,14 +29,15 @@ namespace ExpenseTracker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _expenses = _expenseContext.Expenses.ToList();
+            var expenseContext = new ExpenseContext();
+            _expenses = expenseContext.Expenses.ToList();
             expensesDataGrid.ItemsSource = _expenses;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddExpenseWindow addExpenseWindow = new AddExpenseWindow();
-            var result=addExpenseWindow.ShowDialog();
+            var result = addExpenseWindow.ShowDialog();
             if (result == false)
                 return;
 
@@ -47,8 +48,46 @@ namespace ExpenseTracker
 
             expensesDataGrid.Items.Refresh();
 
-            _expenseContext.Expenses.Add(newExpense);
-            _expenseContext.SaveChanges();
+            var expenseContext = new ExpenseContext();
+            expenseContext.Expenses.Add(newExpense);
+            expenseContext.SaveChanges();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            _selectedIndex = expensesDataGrid.SelectedIndex;
+            if (_selectedIndex == -1)
+            {
+                MessageBox.Show("Please choose a row for edit.");
+                return;
+            }
+
+            var _editingRow = _expenses[_selectedIndex];
+
+            EditExpenseWindow editExpenseWindow = new EditExpenseWindow(_editingRow);
+            var result = editExpenseWindow.ShowDialog();
+            if (result == false)
+                return;
+
+
+            var expenseContext = new ExpenseContext();
+
+            _editingRow = editExpenseWindow.Model;
+            expensesDataGrid.Items.Refresh();
+
+
+
+            var _oldRecord = expenseContext.Expenses
+                 .Where(x => x.Id == _editingRow.Id)
+                 .FirstOrDefault();
+
+            expenseContext.Entry(_oldRecord).CurrentValues.SetValues(_editingRow);
+            expenseContext.SaveChanges();
+
+
+
+
+
         }
     }
 
