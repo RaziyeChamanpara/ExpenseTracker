@@ -1,0 +1,70 @@
+﻿<Window x:Class="ExpenseTracker.EditExpenseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExpenseTracker"
+        mc:Ignorable="d"
+        Title="EditExpense" 
+        Height="396.667" Width="860"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Loaded="Window_Loaded"
+        >
+    <Grid Margin="10">
+       
+        <GroupBox Header="Edit"
+                  Foreground="Green"
+                  BorderBrush="Green"
+                  FontWeight="DemiBold"
+                  >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"
+                            Orientation="Vertical">
+                    <Label Content="Description:"/>
+                    <TextBox Name="descriptionTextBox"
+                             BorderBrush="DarkSeaGreen"
+                             Width="100"/>
+                    <Label Content="Expense Type:"/>
+                    <ComboBox Name="expenseTypeComboBox"
+                              Width="100"
+                              BorderBrush="DarkSeaGreen"
+                              ItemsSource="{Binding _expenseTypes}"
+                              DisplayMemberPath="Name"
+                              SelectedValuePath="Id"
+                          />
+                    <Label Content="Date:"/>
+                    <DatePicker Name="expenseDatePicker"
+                                Width="100"/>
+                    <Label  Content="Amount:"/>
+                    <TextBox Name="amountTextBox"
+                             Width="100"
+                             BorderBrush="DarkSeaGreen"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Content="Submit" 
+                            Background="DarkSeaGreen"
+                            BorderBrush="DarkSeaGreen"
+                            Foreground="White"
+                            Margin="2"
+                            Click="SubmitButton_Click"/>
+                    <Button Content="Cancel" 
+                            Background="DarkSeaGreen"
+                            BorderBrush="DarkSeaGreen"
+                            Foreground="White"
+                            Margin="2"
+                            Click="CancelButton_Click"/>
+                </StackPanel>
+            </Grid>
+            
+            
+        </GroupBox>
+    </Grid>
+</Window>
