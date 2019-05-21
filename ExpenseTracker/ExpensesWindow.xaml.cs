@@ -20,8 +20,9 @@ namespace ExpenseTracker
     /// </summary>
     public partial class ExpensesWindow : Window
     {
-        private List<Expense> _expenses;
-        private ExpenseContext _expenseContext = new ExpenseContext();
+        private List<Expense> _expenses=new List<Expense>();
+        ExpenseRepository ExpenseRepository { get; set; } = new ExpenseRepository();
+
         public ExpensesWindow()
         {
             InitializeComponent();
@@ -29,8 +30,7 @@ namespace ExpenseTracker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _expenses = _expenseContext.Expenses.ToList();
-            expensesDataGrid.ItemsSource = _expenses;
+            expensesDataGrid.ItemsSource = ExpenseRepository.GetAll();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -44,11 +44,9 @@ namespace ExpenseTracker
             newExpense = addExpenseWindow.Model;
 
             _expenses.Add(newExpense);
-
             expensesDataGrid.Items.Refresh();
 
-            _expenseContext.Expenses.Add(newExpense);
-            _expenseContext.SaveChanges();
+            ExpenseRepository.Add(newExpense);
         }
     }
 
