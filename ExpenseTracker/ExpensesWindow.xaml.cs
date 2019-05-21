@@ -22,6 +22,7 @@ namespace ExpenseTracker
     {
         private List<Expense> _expenses=new List<Expense>();
         ExpenseRepository ExpenseRepository { get; set; } = new ExpenseRepository();
+        private int _selectedIndex = -1;
 
         public ExpensesWindow()
         {
@@ -45,10 +46,7 @@ namespace ExpenseTracker
 
             _expenses.Add(newExpense);
             expensesDataGrid.Items.Refresh();
-
-            var expenseContext = new ExpenseContext();
-            expenseContext.Expenses.Add(newExpense);
-            expenseContext.SaveChanges();
+            ExpenseRepository.Add(newExpense);
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
@@ -66,14 +64,11 @@ namespace ExpenseTracker
             var result = editExpenseWindow.ShowDialog();
             if (result == false)
                 return;
-
-
+     
             var expenseContext = new ExpenseContext();
 
             _editingRow = editExpenseWindow.Model;
             expensesDataGrid.Items.Refresh();
-
-
 
             var _oldRecord = expenseContext.Expenses
                  .Where(x => x.Id == _editingRow.Id)
@@ -81,12 +76,6 @@ namespace ExpenseTracker
 
             expenseContext.Entry(_oldRecord).CurrentValues.SetValues(_editingRow);
             expenseContext.SaveChanges();
-
-
-
-
-
-            ExpenseRepository.Add(newExpense);
         }
     }
 
