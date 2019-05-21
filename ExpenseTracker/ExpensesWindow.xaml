@@ -20,7 +20,7 @@
                   >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Expense Type" Binding="{Binding ExpenseType.Name}" Width="auto"/>
-                <DataGridTextColumn Header=" Date" Binding="{Binding Date ,StringFormat=\{0:dd.MM.yyyy\}}" Width="auto"/>
+                <DataGridTextColumn Header=" Date" Binding="{Binding Date ,StringFormat=\{0:yyyy/MM/dd\}}" Width="auto"/>
                 <DataGridTextColumn Header="Discription" Binding="{Binding Description}" Width="auto"/>
                 <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="auto"/>
             </DataGrid.Columns>
@@ -28,6 +28,7 @@
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Content="Add" Margin="2" Click="AddButton_Click"/>
+            <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
         </StackPanel>
 
     </Grid>

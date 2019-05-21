@@ -36,7 +36,7 @@ namespace ExpenseTracker
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddExpenseWindow addExpenseWindow = new AddExpenseWindow();
-            var result=addExpenseWindow.ShowDialog();
+            var result = addExpenseWindow.ShowDialog();
             if (result == false)
                 return;
 
@@ -45,6 +45,46 @@ namespace ExpenseTracker
 
             _expenses.Add(newExpense);
             expensesDataGrid.Items.Refresh();
+
+            var expenseContext = new ExpenseContext();
+            expenseContext.Expenses.Add(newExpense);
+            expenseContext.SaveChanges();
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            _selectedIndex = expensesDataGrid.SelectedIndex;
+            if (_selectedIndex == -1)
+            {
+                MessageBox.Show("Please choose a row for edit.");
+                return;
+            }
+
+            var _editingRow = _expenses[_selectedIndex];
+
+            EditExpenseWindow editExpenseWindow = new EditExpenseWindow(_editingRow);
+            var result = editExpenseWindow.ShowDialog();
+            if (result == false)
+                return;
+
+
+            var expenseContext = new ExpenseContext();
+
+            _editingRow = editExpenseWindow.Model;
+            expensesDataGrid.Items.Refresh();
+
+
+
+            var _oldRecord = expenseContext.Expenses
+                 .Where(x => x.Id == _editingRow.Id)
+                 .FirstOrDefault();
+
+            expenseContext.Entry(_oldRecord).CurrentValues.SetValues(_editingRow);
+            expenseContext.SaveChanges();
+
+
+
+
 
             ExpenseRepository.Add(newExpense);
         }
