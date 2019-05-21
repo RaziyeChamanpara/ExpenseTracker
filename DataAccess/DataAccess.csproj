@@ -50,7 +50,9 @@
   <ItemGroup>
     <Compile Include="Expense.cs" />
     <Compile Include="ExpenseContext.cs" />
+    <Compile Include="ExpenseRepository.cs" />
     <Compile Include="ExpenseType.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201902190135246_InitialCreate.cs" />
     <Compile Include="Migrations\201902190135246_InitialCreate.Designer.cs">
       <DependentUpon>201902190135246_InitialCreate.cs</DependentUpon>
