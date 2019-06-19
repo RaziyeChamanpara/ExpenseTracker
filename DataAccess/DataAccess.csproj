@@ -52,6 +52,7 @@
     <Compile Include="ExpenseContext.cs" />
     <Compile Include="ExpenseRepository.cs" />
     <Compile Include="ExpenseType.cs" />
+    <Compile Include="ExpenseTypeRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201902190135246_InitialCreate.cs" />
     <Compile Include="Migrations\201902190135246_InitialCreate.Designer.cs">
@@ -85,6 +86,10 @@
     <Compile Include="Migrations\201903290431585_AddExpenseTypeIdColumnToExpensesTable.Designer.cs">
       <DependentUpon>201903290431585_AddExpenseTypeIdColumnToExpensesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905300640372_AddExpenseTypeNamePropertyToExpenseModel.cs" />
+    <Compile Include="Migrations\201905300640372_AddExpenseTypeNamePropertyToExpenseModel.Designer.cs">
+      <DependentUpon>201905300640372_AddExpenseTypeNamePropertyToExpenseModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -116,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903290431585_AddExpenseTypeIdColumnToExpensesTable.resx">
       <DependentUpon>201903290431585_AddExpenseTypeIdColumnToExpensesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905300640372_AddExpenseTypeNamePropertyToExpenseModel.resx">
+      <DependentUpon>201905300640372_AddExpenseTypeNamePropertyToExpenseModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
