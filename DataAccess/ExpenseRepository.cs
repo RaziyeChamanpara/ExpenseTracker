@@ -8,31 +8,50 @@ namespace DataAccess
 {
     public class ExpenseRepository : IRepository<Expense>
     {
-        private ExpenseContext _expenseContext = new ExpenseContext();
-
         public void Add(Expense entity)
         {
-            _expenseContext.Expenses.Add(entity);
-            _expenseContext.SaveChanges();
+            using (ExpenseContext db = new ExpenseContext())
+            {
+                db.Expenses.Add(entity);
+                db.SaveChanges();
+            }
         }
 
         public void Remove(Expense entity)
         {
-            _expenseContext.Expenses.Remove(entity);
-            _expenseContext.SaveChanges();
+            using (ExpenseContext db = new ExpenseContext())
+            {
+                db.Expenses.Remove(entity);
+                db.SaveChanges();
+            }
         }
 
         public Expense Get(int id)
         {
-            return _expenseContext.Expenses
-                .Where(x => x.Id == id)
-                .FirstOrDefault();
+            using (ExpenseContext db = new ExpenseContext())
+
+                return db.Expenses
+                        .Where(x => x.Id == id)
+                        .FirstOrDefault();
         }
 
         public List<Expense> GetAll()
         {
-            return _expenseContext.Expenses.ToList();
+            using (ExpenseContext db = new ExpenseContext())
+                return db.Expenses.Include("ExpenseType").ToList();
         }
 
+        public void Update(Expense newRecord)
+        {
+            using (ExpenseContext db = new ExpenseContext())
+            {
+                var oldRecord = db.Expenses.Where(x => x.Id == newRecord.Id).FirstOrDefault();
+
+                db.Entry(oldRecord).CurrentValues.SetValues(newRecord);
+
+                db.SaveChanges();
+            }
+
+        }
     }
 }
