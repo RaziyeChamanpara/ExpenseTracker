@@ -12,5 +12,6 @@ namespace DataAccess
         void Remove(TEntity entity);
         TEntity Get(int id);
         List<TEntity> GetAll();
+        void Update(TEntity entity);
     }
 }
