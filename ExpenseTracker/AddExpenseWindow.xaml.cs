@@ -20,16 +20,16 @@ namespace ExpenseTracker
     /// </summary>
     public partial class AddExpenseWindow : Window
     {
-        public Expense Model { get; set; }
-        private ExpenseContext _expenseContext = new ExpenseContext();
+        private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
         private ExpenseType _expenseType = new ExpenseType();
+        public Expense Model { get; set; }
 
         public AddExpenseWindow()
         {
             InitializeComponent();
             Model = new Expense();
-            _expenseTypes = _expenseContext.ExpenseTypes.ToList();
+            _expenseTypes = ExpenseTypeRepository.GetAll();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -66,10 +66,12 @@ namespace ExpenseTracker
             }
 
             Model.ExpenseTypeId = (int)expensetypeComboBox.SelectedValue;
-            Model.ExpenseType = expensetypeComboBox.SelectedItem as ExpenseType;
+            Model.ExpenseTypeName = (expensetypeComboBox.SelectedItem as ExpenseType).Name;
+          
             Model.Description = descriptionTextBox.Text;
             Model.Date = calendar.SelectedDate.Value;
             Model.Amount = Convert.ToInt32(amountTextBox.Text);
+            
 
             this.DialogResult = true;
 

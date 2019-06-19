@@ -20,14 +20,14 @@ namespace ExpenseTracker
     /// </summary>
     public partial class EditExpenseWindow : Window
     {
+        private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
-        private ExpenseContext _expenseContext = new ExpenseContext();
         public Expense Model = new Expense();
-        public EditExpenseWindow( Expense expense)
+        public EditExpenseWindow(Expense oldExpense)
         {
             InitializeComponent();
-            _expenseTypes = _expenseContext.ExpenseTypes.ToList();
-            Model = expense;
+            _expenseTypes = ExpenseTypeRepository.GetAll();
+            Model = oldExpense;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -36,7 +36,7 @@ namespace ExpenseTracker
 
             amountTextBox.Text = Model.Amount.ToString();
             descriptionTextBox.Text = Model.Description;
-            expenseTypeComboBox.SelectedValue= Model.ExpenseType.Id;
+            expenseTypeComboBox.SelectedValue = Model.ExpenseType.Id;
             expenseDatePicker.SelectedDate = Model.Date;
 
         }
@@ -72,8 +72,8 @@ namespace ExpenseTracker
             Model.Amount = Convert.ToInt32(amountTextBox.Text);
             Model.Date = expenseDatePicker.SelectedDate.GetValueOrDefault();
             Model.Description = descriptionTextBox.Text;
-            Model.ExpenseType = expenseTypeComboBox.SelectedItem as ExpenseType;
-            Model.ExpenseTypeId = (int)expenseTypeComboBox.SelectedValue ;
+            Model.ExpenseTypeName = (expenseTypeComboBox.SelectedItem as ExpenseType).Name;
+            Model.ExpenseTypeId = (int)expenseTypeComboBox.SelectedValue;
 
             this.DialogResult = true;
         }
