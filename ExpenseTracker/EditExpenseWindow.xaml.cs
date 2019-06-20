@@ -36,7 +36,7 @@ namespace ExpenseTracker
 
             amountTextBox.Text = Model.Amount.ToString();
             descriptionTextBox.Text = Model.Description;
-            expenseTypeComboBox.SelectedValue = Model.ExpenseType.Id;
+            expenseTypeComboBox.SelectedValue = Model.ExpenseTypeId;
             expenseDatePicker.SelectedDate = Model.Date;
 
         }
