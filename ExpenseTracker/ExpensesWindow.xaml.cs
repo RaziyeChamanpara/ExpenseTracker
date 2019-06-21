@@ -37,13 +37,13 @@ namespace ExpenseTracker
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddExpenseWindow addExpenseWindow = new AddExpenseWindow();
-            var result = addExpenseWindow.ShowDialog();
+            var editExpenseWindow = new AddEditExpenseWindow();
+            var result = editExpenseWindow.ShowDialog();
             if (result == false)
                 return;
 
             var newExpense = new Expense();
-            newExpense = addExpenseWindow.Model;
+            newExpense = editExpenseWindow.Model;
 
             ExpenseRepository.Add(newExpense);
 
@@ -63,7 +63,7 @@ namespace ExpenseTracker
 
             var _selectedRecord = _expenses[_selectedIndex];
 
-            EditExpenseWindow editExpenseWindow = new EditExpenseWindow(_selectedRecord);
+            AddEditExpenseWindow editExpenseWindow = new AddEditExpenseWindow(_selectedRecord);
             var result = editExpenseWindow.ShowDialog();
             if (result == false)
                 return;

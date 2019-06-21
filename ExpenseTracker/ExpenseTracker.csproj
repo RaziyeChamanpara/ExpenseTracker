@@ -70,7 +70,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditExpenseWindow.xaml">
+    <Page Include="AddEditExpenseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,8 +100,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="EditExpenseWindow.xaml.cs">
-      <DependentUpon>EditExpenseWindow.xaml</DependentUpon>
+    <Compile Include="AddEditExpenseWindow.xaml.cs">
+      <DependentUpon>AddEditExpenseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditExpenseTypeWindow.xaml.cs">
       <DependentUpon>EditExpenseTypeWindow.xaml</DependentUpon>

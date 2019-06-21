@@ -18,12 +18,18 @@ namespace ExpenseTracker
     /// <summary>
     /// Interaction logic for EditExpense.xaml
     /// </summary>
-    public partial class EditExpenseWindow : Window
+    public partial class AddEditExpenseWindow : Window
     {
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
         public Expense Model = new Expense();
-        public EditExpenseWindow(Expense oldExpense)
+        public AddEditExpenseWindow()
+        {
+            InitializeComponent();
+            _expenseTypes = ExpenseTypeRepository.GetAll();
+
+        }
+        public AddEditExpenseWindow(Expense oldExpense)
         {
             InitializeComponent();
             _expenseTypes = ExpenseTypeRepository.GetAll();
