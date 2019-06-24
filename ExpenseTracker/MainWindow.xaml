@@ -12,11 +12,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="1" Source="Images\MainImage.png" />
+        <Image Grid.Column="1" Source="Images\MainImage2.jpg" />
 
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <Button Content="Expenses" Margin="2" Click="ExpensesButton_Click"/>
-            <Button Content="ExpenseTypes" Margin="2" Click="ExpenseTypesButton_Click"/>
+            <Button Content="Expenses" Background="Aqua" Foreground="White" BorderBrush="Aqua" Margin="5" Click="ExpensesButton_Click"/>
+            <Button Content="ExpenseTypes" Background="Pink" Foreground="White" BorderBrush="Pink" Margin="5" Click="ExpenseTypesButton_Click"/>
 
         </StackPanel>
         
