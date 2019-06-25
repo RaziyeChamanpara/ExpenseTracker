@@ -154,6 +154,7 @@
     <Resource Include="Images\MainImage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\MainImage2.jpg" />
     <Resource Include="Images\How-to-Account-For-Employee-Expenses.jpg" />
     <Resource Include="Images\images.jpg" />
   </ItemGroup>
