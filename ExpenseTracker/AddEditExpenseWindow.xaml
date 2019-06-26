@@ -13,7 +13,7 @@
         >
     <Grid Margin="10">
        
-        <GroupBox Header="Edit"
+        <GroupBox Name="groupBox"
                   Foreground="Green"
                   BorderBrush="Green"
                   FontWeight="DemiBold"

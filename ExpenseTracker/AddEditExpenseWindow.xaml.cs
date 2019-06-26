@@ -23,17 +23,25 @@ namespace ExpenseTracker
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
         public Expense Model = new Expense();
+
         public AddEditExpenseWindow()
         {
             InitializeComponent();
             _expenseTypes = ExpenseTypeRepository.GetAll();
 
         }
-        public AddEditExpenseWindow(Expense oldExpense)
+
+        public bool? ShowForAdd()
         {
-            InitializeComponent();
-            _expenseTypes = ExpenseTypeRepository.GetAll();
+            groupBox.Header = "Add";
+            return this.ShowDialog();
+        }
+
+        public bool? ShowForEdit(Expense oldExpense)
+        {
             Model = oldExpense;
+            groupBox.Header = "Edit";
+            return this.ShowDialog();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
