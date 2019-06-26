@@ -155,8 +155,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\MainImage2.jpg" />
-    <Resource Include="Images\How-to-Account-For-Employee-Expenses.jpg" />
-    <Resource Include="Images\images.jpg" />
+    <Resource Include="Images\MainImage4.jpg" />
+    <Resource Include="Images\MainImage3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MainImage5.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

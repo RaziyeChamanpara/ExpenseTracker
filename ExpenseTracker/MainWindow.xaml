@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Grid.Column="1" Source="Images\MainImage2.jpg" />
+        <Image Grid.Column="1" Source="Images\MainImage5.jpg" />
 
         <StackPanel Grid.Column="0" Orientation="Vertical">
             <Button Content="Expenses" Background="Aqua" Foreground="White" BorderBrush="Aqua" Margin="5" Click="ExpensesButton_Click"/>
