@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Expenses" Height="450" Width="800"
         Loaded="Window_Loaded">
-    <Grid Margin="10" >
+    <Grid Margin="50" >
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -15,20 +15,23 @@
         <DataGrid Grid.Row="0"
                   Name="expensesDataGrid"
                   ItemsSource="{Binding}"
+                  AlternatingRowBackground="LightSteelBlue"
+                  AlternationCount="2"
                   AutoGenerateColumns="False"
                   Width="auto"
                   >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Expense Type" Binding="{Binding ExpenseTypeName}" Width="auto"/>
-                <DataGridTextColumn Header=" Date" Binding="{Binding Date ,StringFormat=\{0:yyyy/MM/dd\}}" Width="auto"/>
-                <DataGridTextColumn Header="Discription" Binding="{Binding Description}" Width="auto"/>
-                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="auto"/>
+                <DataGridTextColumn Header="Expense Type" Binding="{Binding ExpenseTypeName}"  Width="*"/>
+                <DataGridTextColumn Header=" Date" Binding="{Binding Date ,StringFormat=\{0:yyyy/MM/dd\}}" Width="*"/>
+                <DataGridTextColumn Header="Discription"  Binding="{Binding Description}" Width="2*"/>
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="*"/>
             </DataGrid.Columns>
             
         </DataGrid>
+        
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content="Add" Margin="2" Click="AddButton_Click"/>
-            <Button Content="Edit" Margin="2" Click="EditButton_Click"/>
+            <Button Content="Add" Padding="10,3,10,3" Background="LightSteelBlue" BorderBrush="AliceBlue" Foreground="White" Margin="5" Click="AddButton_Click"/>
+            <Button Content="Edit" Padding="10,3,10,3"  Background="LightSteelBlue" BorderBrush="AliceBlue" Foreground="White" Margin="5" Click="EditButton_Click"/>
         </StackPanel>
 
     </Grid>
