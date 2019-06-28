@@ -15,8 +15,8 @@
         <Image Grid.Column="1" Source="Images\MainImage5.jpg" />
 
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <Button Content="Expenses" Background="Aqua" Foreground="White" BorderBrush="Aqua" Margin="5" Click="ExpensesButton_Click"/>
-            <Button Content="ExpenseTypes" Background="Pink" Foreground="White" BorderBrush="Pink" Margin="5" Click="ExpenseTypesButton_Click"/>
+            <Button Content="  Expenses  " Background="LightSteelBlue" Foreground="White" BorderBrush="LightSteelBlue" Margin="5" Click="ExpensesButton_Click"/>
+            <Button Content="  ExpenseTypes  " Background="LightSalmon" Foreground="White" BorderBrush="LightSalmon" Margin="5" Click="ExpenseTypesButton_Click"/>
 
         </StackPanel>
         
