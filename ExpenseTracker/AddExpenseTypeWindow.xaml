@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
         mc:Ignorable="d"
-        Title="Add Expense Type" ResizeMode="NoResize" 
+        Title="Add Expense Type" ResizeMode="NoResize"
         SizeToContent="WidthAndHeight" 
         WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
@@ -20,11 +20,11 @@
 
         <Label Grid.Row="0" Margin="1" 
                Content="Enter name of the expense type:" />
-        <TextBox Grid.Row=" 1" Margin="5" Name="nameTextBox" />
+        <TextBox Grid.Row=" 1" BorderBrush="SeaGreen" Margin="5" Name="nameTextBox" />
         <StackPanel Grid.Row="2" Margin="1" Orientation="Horizontal" 
                     HorizontalAlignment="Right">
-            <Button Content="Save" Margin="3" Click="SaveButton_Click"/>
-            <Button Content="Cancel" Margin="3" Click="CancelButton_Click"/>
+            <Button Content="  Save  " Background="SeaGreen" BorderBrush="SeaGreen" Foreground="White" Margin="3" Click="SaveButton_Click"/>
+            <Button Content="  Cancel  " Background="SeaGreen" BorderBrush="SeaGreen" Foreground="White"  Margin="3" Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
