@@ -16,7 +16,7 @@
         <GroupBox Name="groupBox"
                   Foreground="Green"
                   BorderBrush="Green"
-                  FontWeight="DemiBold"
+                  FontWeight="DemiBold" 
                   >
             <Grid>
                 <Grid.RowDefinitions>
@@ -28,12 +28,12 @@
                             Orientation="Vertical">
                     <Label Content="Description:"/>
                     <TextBox Name="descriptionTextBox"
-                             BorderBrush="DarkSeaGreen"
+                             BorderBrush="Green"
                              Width="100"/>
                     <Label Content="Expense Type:"/>
                     <ComboBox Name="expenseTypeComboBox"
                               Width="100"
-                              BorderBrush="DarkSeaGreen"
+                              BorderBrush="Green"
                               ItemsSource="{Binding _expenseTypes}"
                               DisplayMemberPath="Name"
                               SelectedValuePath="Id"
@@ -44,20 +44,20 @@
                     <Label  Content="Amount:"/>
                     <TextBox Name="amountTextBox"
                              Width="100"
-                             BorderBrush="DarkSeaGreen"/>
+                             BorderBrush="Green"/>
                 </StackPanel>
                 <StackPanel Grid.Row="2"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    <Button Content="Submit" 
-                            Background="DarkSeaGreen"
-                            BorderBrush="DarkSeaGreen"
+                    <Button Content="  Submit  " 
+                            Background="SeaGreen"
+                            BorderBrush="SeaGreen"
                             Foreground="White"
                             Margin="2"
                             Click="SubmitButton_Click"/>
-                    <Button Content="Cancel" 
-                            Background="DarkSeaGreen"
-                            BorderBrush="DarkSeaGreen"
+                    <Button Content="  Cancel  " 
+                            Background="SeaGreen"
+                            BorderBrush="SeaGreen"
                             Foreground="White"
                             Margin="2"
                             Click="CancelButton_Click"/>
