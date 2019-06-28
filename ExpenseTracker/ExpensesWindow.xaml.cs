@@ -33,6 +33,9 @@ namespace ExpenseTracker
         {
             _expenses = ExpenseRepository.GetAll();
             expensesDataGrid.ItemsSource = _expenses;
+            expensesDataGrid.SelectedItem = _expenses.First();
+            _selectedIndex = 0;
+            
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
