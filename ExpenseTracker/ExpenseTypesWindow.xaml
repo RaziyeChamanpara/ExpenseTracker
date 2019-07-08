@@ -3,35 +3,57 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ExpenseTracker"
+        xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="ExpenseTypesWindow" Height="450" Width="800">
+    
     <Grid Margin="50">
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <DataGrid 
-                  Grid.Row="0" 
+
+        <DataGrid Grid.Row="0" 
                   Name="expenseTypesDataGrid"
                   ItemsSource="{Binding}" 
                   AlternatingRowBackground="LightSalmon"
                   AlternationCount="2"
                   AutoGenerateColumns="False" 
-            SelectedCellsChanged="expenseTypesDataGrid_SelectedCellsChanged">
+                  SelectedCellsChanged="expenseTypesDataGrid_SelectedCellsChanged">
+
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>
             </DataGrid.Columns>
+
         </DataGrid>
+        
         <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content="  Add  " Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White" Margin="2" Click="AddButton_Click"/>
-            <Button Content="  First  " Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White"  Margin="2" Click="FirstButton_Click"/>
-            <Button Content="  Next  " Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White"  Margin="2" Click="NextButton_Click"/>
-            <Button Content="  Previous  " Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White"  Margin="2" Click="PreviousButton_Click"/>
-            <Button Content="  Last  " Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White"  Margin="2" Click="LastButton_Click"/>
-            <Button Content="  Delete  " Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White"  Margin="2" Click="DeleteButton_Click"/>
-            <Button Content="  Edit  "  Background="LightSalmon" BorderBrush="LightSalmon" Foreground="White" Margin="2" Click="EditButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="Add" 
+                                   Click="AddButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="First" 
+                                   Click="FirstButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="Next" 
+                                   Click="NextButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="Previous" 
+                                    Click="PreviousButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="Last" 
+                                    Click="LastButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="Delete" 
+                      Click="DeleteButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="Edit"
+                                Click="EditButton_Click"/>
+            
         </StackPanel>
+        
     </Grid>
+    
 </Window>
