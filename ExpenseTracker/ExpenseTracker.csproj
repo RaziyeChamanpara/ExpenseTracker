@@ -149,6 +149,10 @@
       <Project>{d692f218-659e-4cc0-b3d5-662cfb04c20c}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExpenseTrackerComponents\ExpenseTrackerComponents.csproj">
+      <Project>{e3fda4ee-8c25-4ddd-94b2-e91c90bba9c0}</Project>
+      <Name>ExpenseTrackerComponents</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\MainImage.png" />
