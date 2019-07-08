@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ExpenseTracker"
+        xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid Margin="10" >
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -15,10 +17,16 @@
         <Image Grid.Column="1" Source="Images\MainImage5.jpg" />
 
         <StackPanel Grid.Column="0" Orientation="Vertical">
-            <Button Content="  Expenses  " Background="LightSteelBlue" Foreground="White" BorderBrush="LightSteelBlue" Margin="5" Click="ExpensesButton_Click"/>
-            <Button Content="  ExpenseTypes  " Background="LightSalmon" Foreground="White" BorderBrush="LightSalmon" Margin="5" Click="ExpenseTypesButton_Click"/>
+            
+            <etc:ExpensesButton Content="Expenses" 
+                                   Click="ExpensesButton_Click"/>
+
+            <etc:ExpenseTypesButton Content="ExpenseTypes"
+                                    Click="ExpenseTypesButton_Click"/>
 
         </StackPanel>
         
     </Grid>
+    
 </Window>
+ 
