@@ -46,8 +46,8 @@
   <ItemGroup>
     <Compile Include="ExpensesButton.cs" />
     <Compile Include="ExpenseTypesButton.cs" />
-    <Compile Include="ListWindows.cs" />
     <Compile Include="ExpenseTrackerButton.cs" />
+    <Compile Include="ModifyButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

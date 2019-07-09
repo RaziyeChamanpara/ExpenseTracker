@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
+        xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
         mc:Ignorable="d"
         Title="EditExpense" 
         Height="396.667" Width="860"
@@ -11,12 +12,11 @@
         WindowStartupLocation="CenterOwner"
         Loaded="Window_Loaded"
         >
-    <Grid Margin="10">
-       
         <GroupBox Name="groupBox"
                   Foreground="Green"
                   BorderBrush="Green"
                   FontWeight="DemiBold" 
+                  Margin="50"
                   >
             <Grid>
                 <Grid.RowDefinitions>
@@ -24,12 +24,15 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
+                
                 <StackPanel Grid.Row="0"
                             Orientation="Vertical">
+                    
                     <Label Content="Description:"/>
                     <TextBox Name="descriptionTextBox"
                              BorderBrush="Green"
                              Width="100"/>
+                    
                     <Label Content="Expense Type:"/>
                     <ComboBox Name="expenseTypeComboBox"
                               Width="100"
@@ -38,33 +41,32 @@
                               DisplayMemberPath="Name"
                               SelectedValuePath="Id"
                           />
+                    
                     <Label Content="Date:"/>
                     <DatePicker Name="expenseDatePicker"
                                 Width="100"/>
+                    
                     <Label  Content="Amount:"/>
                     <TextBox Name="amountTextBox"
                              Width="100"
                              BorderBrush="Green"/>
+                    
                 </StackPanel>
+                
                 <StackPanel Grid.Row="2"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    <Button Content="  Submit  " 
-                            Background="SeaGreen"
-                            BorderBrush="SeaGreen"
-                            Foreground="White"
-                            Margin="2"
+                    
+                    <etc:ModifyButton Content="Submit" 
                             Click="SubmitButton_Click"/>
-                    <Button Content="  Cancel  " 
-                            Background="SeaGreen"
-                            BorderBrush="SeaGreen"
-                            Foreground="White"
-                            Margin="2"
+                    
+                    <etc:ModifyButton Content="Cancel" 
                             Click="CancelButton_Click"/>
+                    
                 </StackPanel>
+                
             </Grid>
             
-            
         </GroupBox>
-    </Grid>
+        
 </Window>
