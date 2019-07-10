@@ -4,27 +4,44 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
+        xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
         mc:Ignorable="d"
         Title="Add Expense Type" ResizeMode="NoResize"
         SizeToContent="WidthAndHeight" 
         WindowStartupLocation="CenterScreen">
+    
     <Grid Margin="10">
+        
         <Grid.RowDefinitions >
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Margin="1" 
+        <Label Grid.Row="0" 
+               Margin="1" 
                Content="Enter name of the expense type:" />
-        <TextBox Grid.Row=" 1" BorderBrush="SeaGreen" Margin="5" Name="nameTextBox" />
-        <StackPanel Grid.Row="2" Margin="1" Orientation="Horizontal" 
+        
+        <TextBox Grid.Row="1" 
+                 Name="nameTextBox"
+                 BorderBrush="SeaGreen" 
+                 Margin="5" />
+        
+        <StackPanel Grid.Row="2" 
+                    Margin="1" 
+                    Orientation="Horizontal" 
                     HorizontalAlignment="Right">
-            <Button Content="  Save  " Background="SeaGreen" BorderBrush="SeaGreen" Foreground="White" Margin="3" Click="SaveButton_Click"/>
-            <Button Content="  Cancel  " Background="SeaGreen" BorderBrush="SeaGreen" Foreground="White"  Margin="3" Click="CancelButton_Click"/>
+            
+            <etc:ModifyButton Content="Save" 
+                              Click="SaveButton_Click"/>
+            
+            <etc:ModifyButton Content="Cancel"
+                              Click="CancelButton_Click"/>
         </StackPanel>
     </Grid>
+    
 </Window>
