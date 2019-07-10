@@ -66,10 +66,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddExpenseWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="AddEditExpenseWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -92,9 +88,6 @@
     </Page>
     <Compile Include="AddExpenseTypeWindow.xaml.cs">
       <DependentUpon>AddExpenseTypeWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AddExpenseWindow.xaml.cs">
-      <DependentUpon>AddExpenseWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
