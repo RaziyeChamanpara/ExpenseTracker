@@ -4,24 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExpenseTracker"
+        xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
         mc:Ignorable="d"
         Title="Edit Expense Type"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" Height="160.667" Width="479">
+    
     <Grid Margin="10">
+        
         <Grid.RowDefinitions>
             <RowDefinition  Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Margin="2" Content="Enter a name:"/>
-        <TextBox Grid.Row="1" Margin="2" BorderBrush="Green" Name="editNameTextBox" />
+        
+        <Label Grid.Row="0" 
+               Margin="2" 
+               Content="Enter a name:"/>
+        
+        <TextBox Grid.Row="1" 
+                 Margin="2" 
+                 BorderBrush="Green" 
+                 Name="editNameTextBox" />
+        
         <StackPanel Grid.Row="2" 
                     Margin="2" 
                     Orientation="Horizontal"
                     HorizontalAlignment="Right">
-            <Button Content="  Save  " Background="SeaGreen" BorderBrush="SeaGreen" Foreground="White" Margin="2" Click="SaveButton_Click"/>
-            <Button Content="  Cancel  " Background="SeaGreen" BorderBrush="SeaGreen" Foreground="White" Margin="2" Click="CancelButton_Click"/>
+            
+            <etc:ModifyButton Content="Save"
+                    Click="SaveButton_Click"/>
+            
+            <etc:ModifyButton Content="Cancel" 
+                    Click="CancelButton_Click"/>
+            
         </StackPanel>
 
     </Grid>
