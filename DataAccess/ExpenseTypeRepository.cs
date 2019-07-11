@@ -11,40 +11,52 @@ namespace DataAccess
 
         public void Add(ExpenseType expenseType)
         {
-            using (ExpenseContext _expenseContext = new ExpenseContext())
+            using (ExpenseContext db = new ExpenseContext())
             {
-                _expenseContext.ExpenseTypes.Add(expenseType);
-                _expenseContext.SaveChanges();
+                db.ExpenseTypes.Add(expenseType);
+                db.SaveChanges();
             }
         }
 
         public ExpenseType Get(int id)
         {
-            using (ExpenseContext _expenseContext = new ExpenseContext())
+            using (ExpenseContext db = new ExpenseContext())
             {
-                return _expenseContext.ExpenseTypes.Where(x => x.Id == id).FirstOrDefault();
+                return db.ExpenseTypes
+                    .Where(x => x.Id == id)
+                    .FirstOrDefault();
             }
         }
 
         public List<ExpenseType> GetAll()
         {
-            using (ExpenseContext _expenseContext = new ExpenseContext())
+            using (ExpenseContext db = new ExpenseContext())
             {
-                return _expenseContext.ExpenseTypes.ToList();
+                return db.ExpenseTypes.ToList();
             }
         }
 
         public void Remove(ExpenseType expenseType)
         {
-            using (ExpenseContext _expenseContext = new ExpenseContext())
+            using (ExpenseContext db= new ExpenseContext())
             {
-                _expenseContext.ExpenseTypes.Remove(expenseType);
+                db.ExpenseTypes.Remove(expenseType);
+                db.SaveChanges();
             }
         }
 
-        public void Update(ExpenseType entity)
+        public void Update(ExpenseType newRecord)
         {
-            throw new NotImplementedException();
+            using (ExpenseContext db = new ExpenseContext())
+            {
+                var oldRecord = db.ExpenseTypes
+                    .Where(x => x.Id == newRecord.Id)
+                    .FirstOrDefault();
+
+                db.Entry(oldRecord).CurrentValues.SetValues(newRecord);
+                db.SaveChanges();
+
+            }
         }
     }
 }
