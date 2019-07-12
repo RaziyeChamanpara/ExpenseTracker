@@ -8,7 +8,6 @@ namespace DataAccess
 {
     public class ExpenseTypeRepository : IRepository<ExpenseType>
     {
-
         public void Add(ExpenseType expenseType)
         {
             using (ExpenseContext db = new ExpenseContext())
@@ -36,12 +35,16 @@ namespace DataAccess
             }
         }
 
-        public void Remove(ExpenseType expenseType)
+        public void Remove(int id)
         {
-            using (ExpenseContext db= new ExpenseContext())
+            using (ExpenseContext db = new ExpenseContext())
             {
+                var expenseType = new ExpenseType();
+                expenseType = db.ExpenseTypes.Where(x => x.Id == id)
+                                .FirstOrDefault();
                 db.ExpenseTypes.Remove(expenseType);
                 db.SaveChanges();
+
             }
         }
 

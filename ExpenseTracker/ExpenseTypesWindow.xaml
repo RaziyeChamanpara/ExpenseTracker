@@ -21,7 +21,7 @@
                   AlternatingRowBackground="LightSalmon"
                   AlternationCount="2"
                   AutoGenerateColumns="False" 
-                  SelectedCellsChanged="expenseTypesDataGrid_SelectedCellsChanged">
+                  SelectedCellsChanged="ExpenseTypesDataGrid_SelectedCellsChanged">
 
             <DataGrid.Columns >
                 <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Name}"/>

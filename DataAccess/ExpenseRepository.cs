@@ -17,15 +17,6 @@ namespace DataAccess
             }
         }
 
-        public void Remove(Expense entity)
-        {
-            using (ExpenseContext db = new ExpenseContext())
-            {
-                db.Expenses.Remove(entity);
-                db.SaveChanges();
-            }
-        }
-
         public Expense Get(int id)
         {
             using (ExpenseContext db = new ExpenseContext())
@@ -52,6 +43,10 @@ namespace DataAccess
                 db.SaveChanges();
             }
 
+        }
+
+        public void Remove(int id)
+        {
         }
     }
 }

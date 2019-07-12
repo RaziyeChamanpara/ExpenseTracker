@@ -7,10 +7,7 @@ using DataAccess;
 
 namespace ExpenseTracker
 {
-    /// <summary>
-    /// Interaction logic for ExpenseTypesWindow.xaml
-    /// </summary>
-    public partial class ExpenseTypesWindow : Window
+       public partial class ExpenseTypesWindow : Window
     {
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes;
@@ -80,10 +77,19 @@ namespace ExpenseTracker
                 return;
 
             var selectedRow = _expenseTypes[_selectedIndex];
-            ExpenseTypeRepository.Remove(selectedRow);
+            ExpenseTypeRepository.Remove(selectedRow.Id);
             _expenseTypes.Remove(selectedRow);
             expenseTypesDataGrid.Items.Refresh();
 
+        }
+
+        private void GoFirst()
+        {
+            if (_expenseTypes.Count == 0)
+                return;
+
+            expenseTypesDataGrid.SelectedItem = _expenseTypes.First();
+            _selectedIndex = 0;
         }
 
         private void FirstButton_Click(object sender, RoutedEventArgs e)
@@ -110,16 +116,6 @@ namespace ExpenseTracker
 
         }
 
-
-        private void GoFirst()
-        {
-            if (_expenseTypes.Count == 0)
-                return;
-
-            expenseTypesDataGrid.SelectedItem = _expenseTypes.First();
-            _selectedIndex = 0;
-        }
-
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedIndex <= 0)
@@ -131,8 +127,7 @@ namespace ExpenseTracker
 
         }
 
-
-        private void expenseTypesDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        private void ExpenseTypesDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             _selectedIndex = expenseTypesDataGrid.SelectedIndex;
 
