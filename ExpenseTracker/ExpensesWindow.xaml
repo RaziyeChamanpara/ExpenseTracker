@@ -39,6 +39,9 @@
             
             <etc:ExpensesButton Content="Edit"
                                 Click="EditButton_Click"/>
+            
+            <etc:ExpensesButton Content="Delete"
+                                Click="DeleteButton_Click"/>
         </StackPanel>
 
     </Grid>

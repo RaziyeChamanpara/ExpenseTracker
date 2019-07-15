@@ -1,23 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using DataAccess;
 
 namespace ExpenseTracker
 {
-    /// <summary>
-    /// Interaction logic for ExpensesWindow.xaml
-    /// </summary>
     public partial class ExpensesWindow : Window
     {
         ExpenseRepository ExpenseRepository { get; set; } = new ExpenseRepository();
@@ -82,6 +69,26 @@ namespace ExpenseTracker
 
             expensesDataGrid.Items.Refresh();
         }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_expenses.Count() == 0)
+                return;
+
+            var selectedRow = _expenses[_selectedIndex];
+
+            MessageBoxResult messageBoxResult = MessageBox
+                .Show(selectedRow.Description, "Delete", MessageBoxButton.OKCancel);
+            if (messageBoxResult == MessageBoxResult.Cancel)
+                return;
+
+
+            ExpenseRepository.Remove(selectedRow.Id);
+            _expenses.Remove(selectedRow);
+            expensesDataGrid.Items.Refresh();
+        }
+
     }
+    
 
 }

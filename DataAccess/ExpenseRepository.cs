@@ -47,6 +47,12 @@ namespace DataAccess
 
         public void Remove(int id)
         {
+            using (ExpenseContext db = new ExpenseContext())
+            {
+                var expense=db.Expenses.Where(x => x.Id == id).FirstOrDefault();
+                db.Expenses.Remove(expense);
+                db.SaveChanges();
+            }
         }
     }
 }
