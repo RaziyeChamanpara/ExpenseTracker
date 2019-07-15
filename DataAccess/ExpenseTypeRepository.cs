@@ -39,12 +39,9 @@ namespace DataAccess
         {
             using (ExpenseContext db = new ExpenseContext())
             {
-                var expenseType = new ExpenseType();
-                expenseType = db.ExpenseTypes.Where(x => x.Id == id)
-                                .FirstOrDefault();
+               var expenseType = db.ExpenseTypes.Where(x => x.Id == id).FirstOrDefault();
                 db.ExpenseTypes.Remove(expenseType);
                 db.SaveChanges();
-
             }
         }
 
