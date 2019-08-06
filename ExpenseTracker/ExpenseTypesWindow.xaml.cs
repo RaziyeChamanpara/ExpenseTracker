@@ -7,7 +7,7 @@ using DataAccess;
 
 namespace ExpenseTracker
 {
-       public partial class ExpenseTypesWindow : Window
+    public partial class ExpenseTypesWindow : Window
     {
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes;
@@ -20,7 +20,7 @@ namespace ExpenseTracker
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _expenseTypes =ExpenseTypeRepository.GetAll();
+            _expenseTypes = ExpenseTypeRepository.GetAll();
             expenseTypesDataGrid.ItemsSource = _expenseTypes;
             GoFirst();
         }
@@ -30,7 +30,7 @@ namespace ExpenseTracker
             try
             {
                 AddEditExpenseTypeWindow addWindow = new AddEditExpenseTypeWindow();
-                var result=addWindow.ShowForAdd();
+                var result = addWindow.ShowForAdd();
 
                 if (result == false)
                     return;

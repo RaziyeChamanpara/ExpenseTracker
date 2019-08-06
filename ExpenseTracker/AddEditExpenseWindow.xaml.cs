@@ -5,9 +5,6 @@ using DataAccess;
 
 namespace ExpenseTracker
 {
-    /// <summary>
-    /// Interaction logic for EditExpense.xaml
-    /// </summary>
     public partial class AddEditExpenseWindow : Window
     {
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();

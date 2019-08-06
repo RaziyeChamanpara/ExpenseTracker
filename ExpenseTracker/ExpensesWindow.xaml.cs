@@ -22,7 +22,7 @@ namespace ExpenseTracker
             expensesDataGrid.ItemsSource = _expenses;
             expensesDataGrid.SelectedItem = _expenses.First();
             _selectedIndex = 0;
-            
+
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -89,6 +89,6 @@ namespace ExpenseTracker
         }
 
     }
-    
+
 
 }

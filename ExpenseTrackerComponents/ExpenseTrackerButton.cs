@@ -20,7 +20,6 @@ namespace ExpenseTrackerComponents
 
             //Foreground
             this.Foreground = Brushes.White;
-
         }
     }
 }
