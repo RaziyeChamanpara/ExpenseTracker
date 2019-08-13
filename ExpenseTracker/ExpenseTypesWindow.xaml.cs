@@ -30,7 +30,7 @@ namespace ExpenseTracker
             try
             {
                 AddEditExpenseTypeWindow addWindow = new AddEditExpenseTypeWindow();
-                var result = addWindow.ShowForAdd();
+                bool? result = addWindow.ShowForAdd();
 
                 if (result == false)
                     return;
@@ -57,8 +57,6 @@ namespace ExpenseTracker
             if (result == false)
                 return;
 
-            selectedRow = editWindow.Model;
-
             ExpenseTypeRepository.Update(selectedRow);
             _expenseTypes[_selectedIndex] = selectedRow;
             expenseTypesDataGrid.Items.Refresh();
@@ -69,14 +67,14 @@ namespace ExpenseTracker
             if (_expenseTypes.Count == 0)
                 return;
 
-            MessageBoxResult messageBoxResult = MessageBox.Show
-                ("The selected item will be removed."
-                , "Delete", MessageBoxButton.OKCancel);
+            var selectedRow = _expenseTypes[_selectedIndex];
+
+            MessageBoxResult messageBoxResult = MessageBox
+                .Show(selectedRow.Name + " will be removed.", "Delete", MessageBoxButton.OKCancel);
 
             if (messageBoxResult == MessageBoxResult.Cancel)
                 return;
 
-            var selectedRow = _expenseTypes[_selectedIndex];
             ExpenseTypeRepository.Remove(selectedRow.Id);
             _expenseTypes.Remove(selectedRow);
             expenseTypesDataGrid.Items.Refresh();
