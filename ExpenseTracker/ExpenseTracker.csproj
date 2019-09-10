@@ -92,6 +92,8 @@
     <Compile Include="AddEditExpenseWindow.xaml.cs">
       <DependentUpon>AddEditExpenseWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BaseListWindow.cs" />
+    <Compile Include="BaseModifyWindow.cs" />
     <Compile Include="ExpensesWindow.xaml.cs">
       <DependentUpon>ExpensesWindow.xaml</DependentUpon>
     </Compile>
