@@ -2,7 +2,7 @@
 
 namespace DataAccess
 {
-    interface IRepository<TEntity>
+    public interface IRepository<TEntity>
     {
         void Add(TEntity entity);
         void Remove(int id);
