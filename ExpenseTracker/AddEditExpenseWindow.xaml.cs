@@ -5,26 +5,26 @@ using DataAccess;
 
 namespace ExpenseTracker
 {
-    public partial class AddEditExpenseWindow : Window
+    public partial class AddEditExpenseWindow : BaseModifyWindow<Expense>
     {
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
-        public Expense Model = new Expense();
+       
 
-        public AddEditExpenseWindow()
+        public AddEditExpenseWindow():base(new Expense())
         {
             InitializeComponent();
             _expenseTypes = ExpenseTypeRepository.GetAll();
 
         }
 
-        public bool? ShowForAdd()
+        public override  bool? ShowForAdd()
         {
             groupBox.Header = "Add";
             return this.ShowDialog();
         }
 
-        public bool? ShowForEdit(Expense oldExpense)
+        public override bool? ShowForEdit(Expense oldExpense)
         {
             Model = oldExpense;
             groupBox.Header = "Edit";
@@ -36,7 +36,7 @@ namespace ExpenseTracker
             expenseTypeComboBox.ItemsSource = _expenseTypes;
 
             amountTextBox.Text = Model.Amount.ToString();
-            descriptionTextBox.Text = Model.Description;
+            descriptionTextBox.Text = Model.Name;
             expenseTypeComboBox.SelectedValue = Model.ExpenseTypeId;
             expenseDatePicker.SelectedDate = Model.Date;
 
@@ -72,7 +72,7 @@ namespace ExpenseTracker
             }
             Model.Amount = Convert.ToInt32(amountTextBox.Text);
             Model.Date = expenseDatePicker.SelectedDate.GetValueOrDefault();
-            Model.Description = descriptionTextBox.Text;
+            Model.Name = descriptionTextBox.Text;
             Model.ExpenseTypeName = (expenseTypeComboBox.SelectedItem as ExpenseType).Name;
             Model.ExpenseTypeId = (int)expenseTypeComboBox.SelectedValue;
 
