@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace DataAccess
 {
-    public class ExpenseContext : DbContext
+    public class ExpenseTrackerContext : DbContext
     {
-        public ExpenseContext():
+        public ExpenseTrackerContext():
             base("ExpenseTrackerConnectionString")
         {
 

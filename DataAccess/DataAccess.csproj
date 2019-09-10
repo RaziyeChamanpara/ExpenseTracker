@@ -49,10 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Expense.cs" />
-    <Compile Include="ExpenseContext.cs" />
+    <Compile Include="ExpenseTrackerContext.cs" />
     <Compile Include="ExpenseRepository.cs" />
     <Compile Include="ExpenseType.cs" />
     <Compile Include="ExpenseTypeRepository.cs" />
+    <Compile Include="IEntity.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Migrations\201902190135246_InitialCreate.cs" />
     <Compile Include="Migrations\201902190135246_InitialCreate.Designer.cs">
@@ -90,6 +91,10 @@
     <Compile Include="Migrations\201905300640372_AddExpenseTypeNamePropertyToExpenseModel.Designer.cs">
       <DependentUpon>201905300640372_AddExpenseTypeNamePropertyToExpenseModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201909100401008_RenameDescriptionColumnToNameColumnInExpenseTable.cs" />
+    <Compile Include="Migrations\201909100401008_RenameDescriptionColumnToNameColumnInExpenseTable.Designer.cs">
+      <DependentUpon>201909100401008_RenameDescriptionColumnToNameColumnInExpenseTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -124,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905300640372_AddExpenseTypeNamePropertyToExpenseModel.resx">
       <DependentUpon>201905300640372_AddExpenseTypeNamePropertyToExpenseModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909100401008_RenameDescriptionColumnToNameColumnInExpenseTable.resx">
+      <DependentUpon>201909100401008_RenameDescriptionColumnToNameColumnInExpenseTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

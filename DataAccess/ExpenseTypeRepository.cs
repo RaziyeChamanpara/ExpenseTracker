@@ -7,7 +7,7 @@ namespace DataAccess
     {
         public void Add(ExpenseType expenseType)
         {
-            using (ExpenseContext db = new ExpenseContext())
+            using (ExpenseTrackerContext db = new ExpenseTrackerContext())
             {
                 db.ExpenseTypes.Add(expenseType);
                 db.SaveChanges();
@@ -16,7 +16,7 @@ namespace DataAccess
 
         public ExpenseType Get(int id)
         {
-            using (ExpenseContext db = new ExpenseContext())
+            using (ExpenseTrackerContext db = new ExpenseTrackerContext())
             {
                 return db.ExpenseTypes
                     .Where(x => x.Id == id)
@@ -26,7 +26,7 @@ namespace DataAccess
 
         public List<ExpenseType> GetAll()
         {
-            using (ExpenseContext db = new ExpenseContext())
+            using (ExpenseTrackerContext db = new ExpenseTrackerContext())
             {
                 return db.ExpenseTypes.ToList();
             }
@@ -34,7 +34,7 @@ namespace DataAccess
 
         public void Remove(int id)
         {
-            using (ExpenseContext db = new ExpenseContext())
+            using (ExpenseTrackerContext db = new ExpenseTrackerContext())
             {
                var expenseType = db.ExpenseTypes.Where(x => x.Id == id).FirstOrDefault();
                 db.ExpenseTypes.Remove(expenseType);
@@ -44,7 +44,7 @@ namespace DataAccess
 
         public void Update(ExpenseType newRecord)
         {
-            using (ExpenseContext db = new ExpenseContext())
+            using (ExpenseTrackerContext db = new ExpenseTrackerContext())
             {
                 var oldRecord = db.ExpenseTypes
                     .Where(x => x.Id == newRecord.Id)
