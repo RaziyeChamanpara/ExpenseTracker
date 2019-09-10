@@ -1,4 +1,5 @@
-﻿<Window x:Class="ExpenseTracker.ExpensesWindow"
+﻿<local:BaseListWindow x:Class="ExpenseTracker.ExpensesWindow"
+                      x:TypeArguments="local1:Expense"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +7,9 @@
         xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
         mc:Ignorable="d"
         Title="Expenses" Height="450" Width="800"
-        Loaded="Window_Loaded">
+        xmlns:local="clr-namespace:ExpenseTracker"
+                      xmlns:local1="clr-namespace:DataAccess;assembly=DataAccess"
+                      Loaded="Window_Loaded">
     
     <Grid Margin="50" >
         
@@ -26,7 +29,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Expense Type" Binding="{Binding ExpenseTypeName}"  Width="*"/>
                 <DataGridTextColumn Header=" Date" Binding="{Binding Date ,StringFormat=\{0:yyyy/MM/dd\}}" Width="*"/>
-                <DataGridTextColumn Header="Discription"  Binding="{Binding Description}" Width="2*"/>
+                <DataGridTextColumn Header="Discription"  Binding="{Binding Name}" Width="2*"/>
                 <DataGridTextColumn Header="Amount" Binding="{Binding Amount}" Width="*"/>
             </DataGrid.Columns>
             
@@ -45,4 +48,4 @@
         </StackPanel>
 
     </Grid>
-</Window>
+</local:BaseListWindow>
