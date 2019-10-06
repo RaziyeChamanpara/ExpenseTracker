@@ -4,15 +4,22 @@ using DataAccess;
 
 namespace ExpenseTracker
 {
-    public abstract class BaseModifyWindow<T>:Window
+    public abstract class BaseModifyWindow<TEntity> : Window
     {
-        public T Model;
-        public BaseModifyWindow(T model)
+        public TEntity Model;
+        public BaseModifyWindow(TEntity model)
         {
             Model = model;
         }
+
         public abstract bool? ShowForAdd();
 
-        public abstract bool? ShowForEdit(T oldRecord);
+        public abstract bool? ShowForEdit(TEntity oldRecord);
+
+        protected void CancelButton()
+        {
+            this.DialogResult = false;
+            this.Hide();
+        }
     }
 }
