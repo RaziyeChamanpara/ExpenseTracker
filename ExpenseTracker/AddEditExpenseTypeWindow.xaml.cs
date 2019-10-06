@@ -3,22 +3,20 @@ using System.Windows;
 
 namespace ExpenseTracker
 {
-    public partial class AddEditExpenseTypeWindow : Window
+    public partial class AddEditExpenseTypeWindow : BaseModifyWindow<ExpenseType>
     {
-        public ExpenseType Model { get; set; } = new ExpenseType();
-
-        public AddEditExpenseTypeWindow()
+        public AddEditExpenseTypeWindow() : base(new ExpenseType())
         {
             InitializeComponent();
         }
 
-        public bool? ShowForAdd()
+        public override bool? ShowForAdd()
         {
             this.Title = "Add Expense Type";
             return this.ShowDialog();
         }
 
-        public bool? ShowForEdit(ExpenseType expenseType)
+        public override bool? ShowForEdit(ExpenseType expenseType)
         {
             Model = expenseType;
             this.Title = "Edit Expense Type";
