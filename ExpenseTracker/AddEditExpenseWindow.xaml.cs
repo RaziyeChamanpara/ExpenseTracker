@@ -9,13 +9,11 @@ namespace ExpenseTracker
     {
         private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
         private List<ExpenseType> _expenseTypes = new List<ExpenseType>();
-       
 
         public AddEditExpenseWindow():base(new Expense())
         {
             InitializeComponent();
             _expenseTypes = ExpenseTypeRepository.GetAll();
-
         }
 
         public override  bool? ShowForAdd()
@@ -44,8 +42,8 @@ namespace ExpenseTracker
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.DialogResult = false;
-            this.Close();
+            this.DialogResult= false;
+            
         }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
