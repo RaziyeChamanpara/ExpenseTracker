@@ -1,45 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using DataAccess;
 
 namespace ExpenseTracker
 {
-    public partial class ExpenseTypesWindow : Window
+    public partial class ExpenseTypesWindow : BaseListWindow<ExpenseType, AddEditExpenseTypeWindow>
     {
-        private ExpenseTypeRepository ExpenseTypeRepository { get; set; } = new ExpenseTypeRepository();
-        private List<ExpenseType> _expenseTypes;
-        private int _selectedIndex = -1;
 
         public ExpenseTypesWindow()
+            : base(new ExpenseTypeRepository())
         {
             InitializeComponent();
+            Initialize(expenseTypesDataGrid);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            _expenseTypes = ExpenseTypeRepository.GetAll();
-            expenseTypesDataGrid.ItemsSource = _expenseTypes;
+            expenseTypesDataGrid.ItemsSource = List;
             GoFirst();
+                     
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                AddEditExpenseTypeWindow addWindow = new AddEditExpenseTypeWindow();
-                bool? result = addWindow.ShowForAdd();
-
-                if (result == false)
-                    return;
-
-                ExpenseType newExpenseType = addWindow.Model;
-                ExpenseTypeRepository.Add(newExpenseType);
-                _expenseTypes.Add(newExpenseType);
-                expenseTypesDataGrid.Items.Refresh();
-
+                AddClick();
             }
             catch (Exception exeption)
             {
@@ -49,85 +36,41 @@ namespace ExpenseTracker
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedRow = _expenseTypes[_selectedIndex];
-
-            AddEditExpenseTypeWindow editWindow = new AddEditExpenseTypeWindow();
-            var result = editWindow.ShowForEdit(selectedRow);
-
-            if (result == false)
-                return;
-
-            ExpenseTypeRepository.Update(selectedRow);
-            _expenseTypes[_selectedIndex] = selectedRow;
-            expenseTypesDataGrid.Items.Refresh();
+            EditClick();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_expenseTypes.Count == 0)
-                return;
-
-            var selectedRow = _expenseTypes[_selectedIndex];
-
-            MessageBoxResult messageBoxResult = MessageBox
-                .Show(selectedRow.Name + " will be removed.", "Delete", MessageBoxButton.OKCancel);
-
-            if (messageBoxResult == MessageBoxResult.Cancel)
-                return;
-
-            ExpenseTypeRepository.Remove(selectedRow.Id);
-            _expenseTypes.Remove(selectedRow);
-            expenseTypesDataGrid.Items.Refresh();
-
+            DeleteClick();
         }
 
-        private void GoFirst()
-        {
-            if (_expenseTypes.Count == 0)
-                return;
-
-            expenseTypesDataGrid.SelectedItem = _expenseTypes.First();
-            _selectedIndex = 0;
-        }
-
+       
         private void FirstButton_Click(object sender, RoutedEventArgs e)
         {
-            GoFirst();
+            FirstClick();
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedIndex == _expenseTypes.Count - 1)
-                return;
-
-            _selectedIndex += 1;
-            expenseTypesDataGrid.SelectedItem = _expenseTypes[_selectedIndex];
+            NextClick();
 
         }
 
         private void LastButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_expenseTypes.Count == 0)
-                return;
-            expenseTypesDataGrid.SelectedItem = _expenseTypes.Last();
-            _selectedIndex = _expenseTypes.Count - 1;
+            LastClick();
 
         }
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedIndex <= 0)
-                return;
-
-            _selectedIndex -= 1;
-
-            expenseTypesDataGrid.SelectedItem = _expenseTypes[_selectedIndex];
+            PreviouseClick();
 
         }
 
         private void ExpenseTypesDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            _selectedIndex = expenseTypesDataGrid.SelectedIndex;
+            selectedIndex = expenseTypesDataGrid.SelectedIndex;
 
         }
     }
