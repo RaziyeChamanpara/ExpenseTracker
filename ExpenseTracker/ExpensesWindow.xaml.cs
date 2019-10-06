@@ -4,10 +4,10 @@ using DataAccess;
 
 namespace ExpenseTracker
 {
-    public partial class ExpensesWindow : BaseListWindow<Expense>
+    public partial class ExpensesWindow : BaseListWindow<Expense, AddEditExpenseWindow>
     {
         public ExpensesWindow() :
-            base(new ExpenseRepository(), new AddEditExpenseWindow())
+            base(new ExpenseRepository())
         {
             InitializeComponent();
             Initialize(expensesDataGrid);
@@ -16,8 +16,7 @@ namespace ExpenseTracker
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             expensesDataGrid.ItemsSource = List;
-            expensesDataGrid.SelectedItem = List.First();
-            selectedIndex = 0;
+            GoFirst();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
