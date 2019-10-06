@@ -1,15 +1,16 @@
-﻿<local:BaseListWindow x:Class="ExpenseTracker.ExpensesWindow"
-                      x:TypeArguments="local1:Expense"
+﻿<expensetracker:BaseListWindow 
+        x:Class="ExpenseTracker.ExpensesWindow"
+        x:TypeArguments="dataaccess:Expense,expensetracker:AddEditExpenseWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:etc="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
+        xmlns:expensetrackercomponents="clr-namespace:ExpenseTrackerComponents;assembly=ExpenseTrackerComponents"
+        xmlns:expensetracker="clr-namespace:ExpenseTracker"
+        xmlns:dataaccess="clr-namespace:DataAccess;assembly=DataAccess"
         mc:Ignorable="d"
         Title="Expenses" Height="450" Width="800"
-        xmlns:local="clr-namespace:ExpenseTracker"
-                      xmlns:local1="clr-namespace:DataAccess;assembly=DataAccess"
-                      Loaded="Window_Loaded">
+        Loaded="Window_Loaded">
     
     <Grid Margin="50" >
         
@@ -37,15 +38,15 @@
         
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             
-            <etc:ExpensesButton Content="Add" 
+            <expensetrackercomponents:ExpensesButton Content="Add" 
                                 Click="AddButton_Click"/>
             
-            <etc:ExpensesButton Content="Edit"
+            <expensetrackercomponents:ExpensesButton Content="Edit"
                                 Click="EditButton_Click"/>
             
-            <etc:ExpensesButton Content="Delete"
+            <expensetrackercomponents:ExpensesButton Content="Delete"
                                 Click="DeleteButton_Click"/>
         </StackPanel>
 
     </Grid>
-</local:BaseListWindow>
+</expensetracker:BaseListWindow>
